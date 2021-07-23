@@ -1,0 +1,486 @@
+// Everything in here was once in init.jsp. Moved here
+// because it's all static, and clutters the init output.
+
+if (P.WKPrint.isPrintPage() === true) {
+	console.log ("Loading static_init.js...");
+}
+
+try {
+
+// This needs to happen early, since stuff in init uses it
+var ajax = new P.Ajax();
+
+// Make sure this remains as one of the first things that happens
+// otherwise the first few ajax requests don't show the spinner
+$(window).on (P.Ajax.requestNewTrigger, function () {
+	$('.notifier-popup').removeClass ('is-hidden');
+});
+$(window).on (P.Ajax.noPendingRequestsTrigger, function () {
+	$('.notifier-popup').addClass ('is-hidden');
+});
+
+// This is now always defined
+P.instances.wkprint = new P.WKPrint();
+
+if (P.WKPrint.isPrintPage () === false) {
+	P.instances.tracking = new P.Tracking ();
+	P.instances.tracking.setup ();
+}
+
+// We will always use notification from now on. This variable is a global
+// that is read from the Notification class.
+var noTracking;
+
+// Clone Map Print Delay until clones start using the WK Print
+// Putting it here so it can be changed without a rebuild
+P.constants.CloneMapPrintDelay = 20;
+
+// Array that maps boundaries to labels
+MAPLAYER_LABELS = [];
+
+// Common objects that we initialize now.
+var alerter = new PAlerter();
+var dnf = new DynamicNamedFeature();
+var geocoder = new PClientGeocoder();
+var indicatorLoader = new PIndicatorLoaderCache();
+var labelManager = new PLabelManager();
+var linkManager = new PLinkManager();
+var modal = new Modal();
+var placeLoader = new PPlaceLoader();
+var overlaySetUtil = new POverlaySetUtil();
+var polycreator = new PPolyCreator();
+var searchStates = new SearchStates();
+var stringStore = new StringStore();
+
+// Common objects that we initialize on as-needed basis.
+var createSites;
+var cube;
+var datasetSearch;
+var map;
+var notification;
+var parent;
+var platformRebuildPopup;
+var poly;
+var prevmaps;
+var search;
+var widget;
+// Legacy crap that had to come back for status quo widgets
+var pincatsType = "old";
+var pincats = [];
+var newpincats = [];
+var pmToolbar;
+var allowedPinsets = function () { return true; }; // FIXME! Just hacked for now
+
+// Miscellaneous map-related variables.
+var global_period;
+var custom_place = null;
+var allowSelect = true;
+var onmaplegendZoomEvent;
+var printOrientation;
+var pageReloading = false;
+
+// Used for products that have a custom map center and/or zoom.
+var customLng = null;
+var customLat = null;
+var customZoom = null;
+
+// Used by products that have a live map boundary island.
+var liveMapBoundaryIsland = null;
+
+// This is used to track click events on the Similar Results.
+var similarClicks = [];
+
+// Common storage place for indicators, places, and periods.
+var global_indicators = [];
+var global_places = [];
+var global_periods = [];
+
+// Storage for indicator metadata that is retrieved by PCube.
+var pCubeIndCache = {};
+
+// Temporary hack for Chrome for the "ref" parameter.
+var home;
+var ppc;
+
+// Seems we can't escape this...
+var arVersion = navigator.appVersion.split("MSIE");
+var version = parseFloat(arVersion[1]);
+
+// This object holds the sizes that the map needs to be when *not* being resized on the prints (so basically, for
+// high resolution prints where the extent of the map itself is expanded to fit the open space on the print).
+// 'Map' sizes are used both for regular maps and analytics.
+var PrintSizes = {
+	"map": {
+		"landscape": {
+			"width": 1460,
+			"height": 821
+		},
+		"portrait": {
+			"width": 1035,
+			"height": 1246
+		}
+	}
+};
+
+// This holds all of our aggregation rules (Yellow Steps). It is populated in aggregationRules.js.
+PPlaceTypeConfig2.AGGREGATION = new PPlaceTypeConfig2();
+
+// At any time that islandPrintEnabled is set to true, map tiles will use island printing. We only
+// use island printing for prints, so it's only ever turned on immediately before sending off
+// print requests (where island printing was specified), and it is turned back off immediately after.
+var islandPrintEnabled = false;
+
+// The 'Public Transit Rail Lines' map option uses the Mass Transit Lines pointset. Store the dataset id of the Mass
+// Transit Lines pointset here.
+var massTransitSetId = 84150;
+
+// Set the default number of breaks.
+var DEFAULT_NUMBREAKS = 5;
+
+// Set the default dimensions for the content of the info window.
+var DEFAULT_INFODIV_WIDTH = 180;
+var DEFAULT_INFODIV_HEIGHT = 40;
+
+// Create a default overlay set.
+var overlayset = new POverlaySet(637);
+overlayset.setLabel("test points");
+
+// Used by the Tables page.
+var custom_places = [];
+var cubeQueue;
+var ppolygon = null;
+var refreshCubeRunning = false;
+var legend = null;
+var rankingCube = null;
+var aggData;
+var aggPlaceType = null;
+var onLoadCounter = 0;
+var onLoadPlaces = [];
+var cHeader = null;
+var seeValuesTypes = {};
+
+// Used by the Report pages.
+var circlepoints;
+var centerpoint;
+var polyweight = 1;
+var polyopacity = 0.5;
+var polycolor = "#F38139";
+var polyfill = "#F3A12E";
+var fillopacity = 0.7;
+var reportpolygoncolor = "#0070FF";
+var link;
+var theErrors = "";
+var noDataAlertCount = 0;
+var maxResultsAlertCount = 0;
+var reportObject = {};
+var trialUserMaxReports = 5;
+var trialUserRemainingReports = null;
+
+// Used by the Analytics page.
+var wiz = null;
+
+// Used by the Dataloader.
+var sitecreator;
+var sitelist;
+var emailboxCount = 1;
+var trialUserMaxDatasets = 5;         // These are used only for display purposes. The
+var trialUserMaxDatasetPoints = 100;  // actual enforcement of these happens on the backend.
+
+// Used by My PolicyMap.
+var reportDropdownOptions = "";
+
+// Used by the Widgets.
+var textOnlyIsOn = false;
+
+// Used by the PWidget Class.
+var widgetEnum = 1;
+var P_WIDGET_LAYER_ID = widgetEnum++;
+var P_WIDGET_INDICATOR_ID = widgetEnum++;
+var P_WIDGET_OVERLAY_ID = widgetEnum++;
+var widgetZIndex = 999;
+
+// Used by the MD5 Class.
+var hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */
+var b64pad  = ""; /* base-64 pad character. "=" for strict RFC compliance   */
+var chrsz   = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */
+
+// PMapType Scale Constants
+var P_SCALES_NORMAL = [147456000, 73728000, 36864000, 18432000, 9216000, 4608000, 2304000, 1152000, 576000, 288000, 144000, 72000, 36000, 18000, 9000, 4500];
+var P_SCALES_DEFAULT = P_SCALES_NORMAL;
+
+// Copyrights
+var P_COPYRIGHT_NAVTEQ = new PCopyright(1, '&copy;2009 NAVTEQ&#153;');
+var P_COPYRIGHT_PARCEL = new PCopyright(2, 'Parcel data &copy;2008 BSI, Inc.');
+var P_COPYRIGHT_URBANMAPPING = new PCopyright(3, '&copy;2008 Urban Mapping');
+
+var copyrights = {
+	"1": P_COPYRIGHT_NAVTEQ,
+	"2": P_COPYRIGHT_PARCEL,
+	"3": P_COPYRIGHT_URBANMAPPING
+};
+
+// PMapType constants
+PMapType.NORMAL = new PMapType([pMapLayer.BASE,pMapLayer.POLY,pMapLayer.TMINORROADS,pMapLayer.POINTLINE,pMapLayer.POLY_LABEL,pMapLayer.POINTLINE_LABEL,pMapLayer.LABEL,pMapLayer.NEIGHBORHOOD,pMapLayer.CITIES], new PProjection(54004), "Map");
+// Set up default map type with the layers that come from MapOptions object
+PMapType.POLICYMAP = new PMapType(
+	pMapLayer.defaultMapLayers,
+	new PProjection(54004), "Map"
+);
+PMapType.DEFAULT = PMapType.POLICYMAP;
+
+// PIcon Constants
+PIcon.NORMAL = new PIcon();
+PIcon.NORMAL.image = PEnvironment.kamapUrl + 'images/icon_pushpin.png';
+PIcon.NORMAL.shadow = PEnvironment.kamapUrl + 'images/icon_pushpin_shadow.png';
+PIcon.NORMAL.iconSize = new PSize(19, 34);
+PIcon.NORMAL.shadowSize = new PSize(37, 34);
+PIcon.NORMAL.iconAnchor = new PPoint(9, 34);
+PIcon.NORMAL.shadowAnchor = new PPoint(0, 34);
+PIcon.NORMAL.infoWindowAnchor = new PPoint(3, 2);
+
+PIcon.SMALL = new PIcon();
+PIcon.SMALL.image = PEnvironment.kamapUrl + 'images/icon_pushpin_small.png';
+PIcon.SMALL.shadow = PEnvironment.kamapUrl+ 'images/icon_pushpin_small_shadow.png';
+PIcon.SMALL.iconSize = new PSize(11, 20);
+PIcon.SMALL.shadowSize = new PSize(22, 20);
+PIcon.SMALL.iconAnchor = new PPoint(5, 20);
+PIcon.SMALL.shadowAnchor = new PPoint(0, 20);
+PIcon.SMALL.infoWindowAnchor = new PPoint(0, 2);
+
+PIcon.POINT = new PIcon();
+PIcon.POINT.image = PEnvironment.kamapUrl + 'images/icon_pushpin_point.gif';
+PIcon.POINT.shadow = PEnvironment.kamapUrl+ 'images/icon_pushpin_point_shadow.png';
+PIcon.POINT.iconSize = new PSize(9, 9);
+PIcon.POINT.shadowSize = new PSize(11, 11);
+PIcon.POINT.iconAnchor = new PPoint(4, 4);
+PIcon.POINT.shadowAnchor = new PPoint(4, 4);
+PIcon.POINT.infoWindowAnchor = new PPoint(0, 0);
+
+PIcon.LOGO = new PIcon();
+PIcon.LOGO.image = PEnvironment.kamapUrl + 'images/icon_pushpin_3d.png';
+PIcon.LOGO.shadow = PEnvironment.kamapUrl + 'images/icon_pushpin_3d_shadow.png';
+PIcon.LOGO.iconSize = new PSize(17, 22);
+PIcon.LOGO.shadowSize = new PSize(23, 22);
+PIcon.LOGO.iconAnchor = new PPoint(0, 22);
+PIcon.LOGO.shadowAnchor = new PPoint(0, 22);
+PIcon.LOGO.infoWindowAnchor = new PPoint(8, 2);
+
+PIcon.CLUSTER = new PIcon(PIcon.NORMAL);
+PIcon.CLUSTER.image = PEnvironment.kamapUrl + 'images/icon_pushpin_more.png';
+PIcon.CLUSTER.iconSize = new PSize(25,34);
+
+PIcon.CLUSTER_SMALL = new PIcon(PIcon.SMALL);
+PIcon.CLUSTER_SMALL.image = PEnvironment.kamapUrl + 'images/icon_pushpin_small_more.png';
+PIcon.CLUSTER_SMALL.iconSize = new PSize(15,20);
+
+PIcon.CLUSTER_POINT = new PIcon();
+PIcon.CLUSTER_POINT.image = PEnvironment.kamapUrl + 'images/icon_pushpin_point_more.gif';
+PIcon.CLUSTER_POINT.shadow = PEnvironment.kamapUrl+ 'images/icon_pushpin_point_more_shadow.png';
+PIcon.CLUSTER_POINT.iconSize = new PSize(15, 15);
+PIcon.CLUSTER_POINT.shadowSize = new PSize(17, 17);
+PIcon.CLUSTER_POINT.iconAnchor = new PPoint(7, 7);
+PIcon.CLUSTER_POINT.shadowAnchor = new PPoint(7, 7);
+PIcon.CLUSTER_POINT.infoWindowAnchor = new PPoint(0, 0);
+
+PIcon.PMap = new PIcon();
+PIcon.PMap.image = PEnvironment.kamapUrl + 'images/icon_policymap.png';
+PIcon.PMap.shadow = '';
+PIcon.PMap.iconSize = new PSize(18, 34);
+PIcon.PMap.shadowSize = new PSize(37, 34);
+PIcon.PMap.iconAnchor = new PPoint(9, 34);
+PIcon.PMap.shadowAnchor = new PPoint(0, 34);
+PIcon.PMap.infoWindowAnchor = new PPoint(3, 2);
+
+PIcon.CIRCLE_HIGHLIGHT = new PIcon();
+PIcon.CIRCLE_HIGHLIGHT.image = '/images/pins/circle_icon_highlight.png';
+PIcon.CIRCLE_HIGHLIGHT.iconSize = new PSize(15, 15);
+PIcon.CIRCLE_HIGHLIGHT.iconAnchor = new PPoint(7, 7);
+PIcon.CIRCLE_HIGHLIGHT.infoWindowAnchor = new PPoint(0, 0);
+
+PIcon.DEFAULT = PIcon.NORMAL;
+
+// Set this product's default color ramp. We default to the first color ramp used in the legend if one hasn't been set
+// (which is the case for most products).
+if(productProperty.exists("color_ramp") && colorRamps.getRampById(productProperty.getValue("color_ramp")) != null) {
+	PColorRamp.DEFAULT = colorRamps.getRampById(productProperty.getValue("color_ramp"));
+} else {
+	PColorRamp.DEFAULT = colorRamps.getLegendRamps()[0];
+}
+
+// Break Type Enums
+var P_BREAKTYPE_QUANTILE_ID = 0;
+var P_BREAKTYPE_EXACT_VALUE_ID = 2;
+var P_BREAKTYPE_EQUAL_INTERVAL_CUSTOM_ID = 3;
+var P_BREAKTYPE_EXACT_VALUE_CUSTOM_ID = 4;
+
+// This holds the placetypes that we will calculate aggregate values for (like
+// a custom region) when they don't have a value for the current indicator.)
+// Custom Dallas placetypes were added so they can see aggregates for them in their site license.
+// Custom Philly placetypes were added so they can see aggregates for them in their site license.
+var tablesAggPlaceTypes = [
+	PPlaceType.ZIP,
+	PPlaceType.CONGRESSIONAL,
+	PPlaceType.SCHOOL,
+	PPlaceType.SLD_UPPER,
+	PPlaceType.SLD_LOWER,
+	PPlaceType.MD,
+	PPlaceType.DALLAS_CITYLIMIT,
+	PPlaceType.DALLAS_COUNCIL,
+	PPlaceType.DALLAS_POLICESECTOR,
+	PPlaceType.DALLAS_SERVICEAREA,
+	PPlaceType.CB_COUNCIL,
+	PPlaceType.CB_COUNCIL_2016,
+	PPlaceType.CB_PLANNING,
+	PPlaceType.PHILA_NEIGHBORHOOD,
+	PPlaceType.PHILA_RCO,
+	PPlaceType.PHILA_POLICE,
+	PPlaceType.PHILA_WARD,
+	PPlaceType.PHILA_CATCHMENT_ES,
+	PPlaceType.PHILA_CATCHMENT_MS,
+	PPlaceType.PHILA_CATCHMENT_HS
+];
+
+PPlaceOrder.IDENTIFIER = 1;
+PPlaceOrder.CANONICALNAME = 2;
+PPlaceOrder.AREA = 3;
+PPlaceOrder.POPULATION = 4;
+PPlaceOrder.LABEL = 5;
+PPlaceOrder.DISTANCE = 6;
+PPlaceOrder.STATE_CANONICALNAME = 7;
+PPlaceOrder.CAST_IDENTIFIER = 8;
+PPlaceOrder.OVERLAP_PERCENTAGE = 9;
+
+// Attribute and Filter Type Enums
+// These are in sync with the database.
+PAttribute.STRING = 1;
+PAttribute.NUMBER = 2;
+PAttribute.BOOLEAN = 3;
+PAttribute.DATE = 4;
+PAttribute.IMAGE = 5;
+PAttributeFilter.EQUAL = 1;       // default -- goes through values and see if it is equal to attribute
+PAttributeFilter.RANGE = 2;       // if string, goes through values and matches value, if number or date, first 2 numbers in values specify range
+PAttributeFilter.STARTSWITH = 3;  // only for string, looks for string that starts with the given string
+
+// Transaction types
+PTransactionType = new Object();
+PTransactionType.MAP_NAVTEQ = 0;
+
+// Z-indexes for objects in map
+var Z_CONTROLS = 102;
+var Z_BUBBLE = 101;
+var Z_MARKER = 100;
+var Z_MARKER_SHADOW = 99;
+var Z_POLYLINE = 98;
+
+// PChartOptions enums
+PChartOptions.INDICATOR = 0;
+PChartOptions.PLACE = 1;
+PChartOptions.PERIOD = 2;
+PChartOptions.BAR = 10;
+PChartOptions.LINE = 11;
+PChartOptions.PIE = 12;
+
+// PTableOptions enums (same as PChartOptions ones)
+PTableOptions.INDICATOR = PChartOptions.INDICATOR;
+PTableOptions.PLACE = PChartOptions.PLACE;
+PTableOptions.PERIOD = PChartOptions.PERIOD;
+
+
+PPlaceTypeConfig.typesToIgnoreAsDefaultInShadeBy = [PPlaceType.CITY, PPlaceType.CBSA, PPlaceType.SLD_UPPER, PPlaceType.SLD_LOWER, PPlaceType.CONGRESSIONAL, PPlaceType.CDBG, PPlaceType.COUNTY_SUBDIVISION, PPlaceType.MD];
+
+if (PEnvironment.pageName == "widget") {
+	// Set up custom legend zoom and containment settings for widgets that require it
+	// Putting this here because if it goes in the widget on load function errors come up
+	//customizeLegendZoomsAndContainments();
+}
+
+// Set up the breadcrumb's initial place.
+var initialplace = new PPlace();
+initialplace.label = "";
+var mapstates = new PMapStateList(10, initialplace);
+
+// Set the zoom level place types.
+PMIdentificationPrinter.placeTypeConfig.zooms = PPlaceTypeConfig.PLEGEND.zooms.slice();
+PMIdentificationPrinter.placeTypeConfig.zooms[1] = PPlaceType.STATE;
+PMIdentificationPrinter.placeTypeConfig.zooms[2] = PPlaceType.STATE;
+PMIdentificationPrinter.placeTypeConfig.zooms[6] = PPlaceType.COUNTY;
+PMIdentificationPrinter.placeTypeConfig.zooms[7] = PPlaceType.ZIP;
+PMIdentificationPrinter.placeTypeConfig.zooms[8] = PPlaceType.ZIP;
+
+} catch (e) {
+	// Apparently jquery (or jquery-ui) relies on things being setup. Calling errorPopup, which
+	// calls jquery-ui.dialog, causes a javascript error when this is done without document.ready.
+	$(document).ready (function () {
+		errorPopup ({error: e, message: 'javascript error in static_init.js'});
+	});
+}
+
+$(document).ready(function() {
+	if (P.WKPrint.isPrintPage() === true) {
+		console.log ('document.ready fired');
+		var check = 0;
+		// A simple timer that will keep wkhtmltopdf from timing out due to
+		// long-running asynchronous requests. It just outputs the number
+		// of pending requests once per second.
+		var checkAjax = function () {
+			check++;
+			if (ajax.activeRequests > 0 ) {
+				console.log ('Asynchronous request checker (' + check + '): Current active requests: ' + ajax.activeRequests);
+			}
+			// Only run again if window.status hasn't been set
+			if (window.status == '') {
+				setTimeout (checkAjax, 1000);
+			}
+		};
+		checkAjax ();
+	} else {
+		// Prevent a user from leaving if an error popup is present, because otherwise
+		// they'd just get a flash of a popup and the page would reload and they'd never
+		// know what it was. Error popups are only seen in dev, staging, or when the DCP
+		// is present in production. The odd thing is that this doesn't work in the PEvent
+		// version of beforeunload just below.
+		$(window).on ('beforeunload', function () {
+			// Prevents extra crap from happening when we're really not unloading. Set in
+			// setWindowLocation() in index.js. Code should call that instead of using
+			// window.location directly from now on.
+			if (P.instances.reallyUnload != null && P.instances.reallyUnload === false) {
+				P.instances.reallyUnload = true;
+				return;
+			}
+			pageReloading = true;
+			session.save();
+			// This is now necessary, since un-flushed tracking data may exist.
+			if (typeof notification !== 'object') {
+				notification = new Notification ();
+			}
+			// All we need to do is poll, since this page is being unloaded.
+			// Also supply an argument to do a non-asynchronous AJAX request,
+			// since AJAX hates it when the page is reloaded while a request
+			// is pending.
+			notification.poll (false);
+			notification.closeWebSocket ();
+			if ($('#errorPopupTextArea').length > 0) {
+				return "POLICYMAP EMPLOYEE PLEASE READ THIS:\n\nSeems an error happened while leaving the page. Acknowledge this popup with the option to NOT reload the page, " +
+					"then address the error popup and close it before leaving the page.\n\nNOTE: This popup also only appears in dev, staging, and prod with DCP.\n\nALSO NOTE: " +
+					"You might get stuck in a loop here! Just use the option to reload the page if that happens.";
+			}
+		});
+		$(window).on ('unload', function() {
+			PUnload();
+		});
+	}
+	globalOnLoad();
+	onLoadFunction();
+	if (P.WKPrint.isPrintPage() === false) {
+		if (userMsg) {
+			showUpdatedAlert(userMsg);
+		}
+		// We will always use notification from now on, except on print pages
+		notification = new Notification();
+		notification.start ();
+	}
+});
+
+if (P.WKPrint.isPrintPage() === true) {
+	console.log ("Loaded static_init.js...");
+}

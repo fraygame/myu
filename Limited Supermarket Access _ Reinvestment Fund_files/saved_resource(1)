@@ -1,0 +1,270 @@
+body.cb-clone.map-print-page .legend--analytics .legend__indicators__item,
+body.cb-clone.map-print-page .legend--analytics
+.legend__indicators{display:none !important}body.cb-clone.map-print-page #cb-content #map #legend.legend--analytics>div.analytics-legend__item{border-bottom:1px solid #e5e5e5}body.cb-clone.map-print-page .map-legends{padding:10px
+0}body.cb-clone.map-print-page .map-legends
+.legend{max-width:170px;min-height:50px;border:1px
+solid !important}body.cb-clone.map-print-page  #map #data-points-legend{background:#fff}body.cb-clone.map-print-page #map #legend
+.legend__breakdown__color{width:22px}body.cb-clone.map-print-page .legend--data-points__icon{display:inline}div.citi-reports-container div.logo-header img.mydistrict-logo{width:150px}div.citi-reports-container div.logo-header img.pmap-logo{width:100px}div.citi-reports-container div.logo-header img.citi-community-logo{width:125px}div.citi-reports-container div.nav-bar{display:none}div.citi-reports-container div#report-header{font-size:17px;height:26px;font-weight:bold}div.citi-reports-container div#report-header div.district-name{padding:2px
+20px 0px}div.citi-reports-container div#report-header div.report-name{padding:2px
+20px 0px}div.citi-reports-container div.page-print{display:none}div.citi-reports-container div.data-content{padding:2px
+0px}div.citi-reports-container div.data-content
+div.summary{margin:0;font-size:13px;display:none}div.citi-reports-container div.data-content div.data-header{font-size:16px}div.citi-reports-container div.data-content div.page-break{page-break-after:always;display:block}div.citi-reports-container div.data-content div.demographic-data-column{margin-top:10px}div.citi-reports-container div.demographic-data-column
+.page2{margin-top:50px}div.citi-reports-container div.data-content div.demographic-data-column
+div.divider{margin:8px}div.citi-reports-container div.data-content div.demographic-data-column div.value
+span.highlight{font-size:23px !important}div.citi-reports-container .demographic-endnote{margin-top:50px !important}div.citi-reports-container #eductable div.chartContainer #popup1,
+div.citi-reports-container #eductable div.chartContainer #popup2,
+div.citi-reports-container #eductable div.chartContainer
+#popup3{width:100%;min-width:500px}div.citi-reports-container #education-data-column{width:15% !important}div.citi-reports-container div.data-content
+#education_interactive_column{width:80% !important}div.citi-reports-container #pop3 #ranksContainer
+div{display:table-cell}div.citi-reports-container .reportPlaces .title .citi-rank-type{font-size:15px !important}div.citi-reports-container .reportPlaces .title .citi-rank-title{font-size:17px !important}div.citi-reports-container .reportPlaces
+.chartTable{font-size:12px !important}div.citi-reports-container .reportRanks
+.body{height:210px !important}div.citi-reports-container .reportRanks .header
+h1{font-size:17px !important}div.citi-reports-container .reportRanks .header
+h2{font-size:15px !important}div.citi-reports-container .reportRanks
+td{font-size:12px !important}div.citi-reports-container .reportRanks tr.selected
+td{font-size:17px !important}div.citi-reports-container
+div.scrollTableContainer{margin-top:5px}div.citi-reports-container div.citiValuesToggle
+span.divider{display:none}div.citi-footer{margin:0;padding:0
+20px;display:none !important}div.citi-footer
+*{display:none !important}div.citi-reports-container div.table-list{margin-top:5px}div.citi-reports-container div.scroll-list-div{height:585px !important}div.citi-reports-container div.data-content div.business-data-column{margin:10px
+5px 20px 0;width:31%}div.citi-reports-container div.data-content div.business-data-column
+div.divider{margin:12px
+0}div.citi-reports-container div.data-content div.business-data-column div.value
+span.highlight{font-size:23px !important}div.citi-reports-container .jobs-interactive-column{width:69% !important}div.citi-reports-container div.jobs-charts-title{font-size:100%;padding:1px
+3px 0px !important}div.citi-reports-container .jobs-charts td, div.citi-reports-container .jobs-charts
+th{font-size:10px !important;padding:1px
+3px !important}div.citi-reports-container div.jobs-endnote{margin-top:40px}div.citi-reports-container
+#miniMenuContainer{display:none}div.citi-reports-container .jobs-charts
+#chart{height:290px !important}div.citi-reports-container .jobs-charts
+#chartContainer{min-height:325px !important}div.citi-reports-container .jobs-charts #chartContent
+#chart{float:none !important;margin-top:-8px !important}div.citi-reports-container .jobs-charts #chartContent #createTableHeader
+a{display:none}div.citi-reports-container div.data-content div.overview-interactive-column #overview-chart{width:600px;height:500px;margin-top:40px}div.citi-reports-container div.data-content div.overview-interactive-column{width:65%}div.citi-reports-container div.overview-data-column
+.page2{margin-top:40px}div.citi-reports-container div.data-content div.overview-data-column div.value
+span.highlight{font-size:20px !important}div.citi-reports-container div.data-content div.overview-data-column{margin-top:5px;width:31%}div.citi-reports-container div.data-content div.overview-data-column
+div.divider{margin:8px
+0}div.citi-reports-container
+iframe{display:inline !important}div.citi-reports-container
+div.header{display:block !important}div.citi-reports-container div.finances-and-insurance-data-column
+.page2{margin-top:50px}div.citi-reports-container div.data-content div.finances-and-insurance-data-column div.value
+span.highlight{font-size:20px !important}div.citi-reports-container div.data-content div.household-expenditures-interactive-column #household-expenditures-piechart{}div.citi-reports-container div.data-content div.household-expenditures-interactive-column{width:63%}div.citi-reports-container div.data-content div.household-expenditures-data-column div.value
+span.highlight{font-size:20px !important}div.citi-reports-container div.data-content div.household-expenditures-data-column{margin-top:5px;width:33%}div.citi-reports-container div.data-content div.household-expenditures-data-column
+.page2{margin-top:140px}div.citi-reports-container div.data-content div.household-expenditures-data-column
+div.divider{margin:5px
+0}div.citi-reports-container div.data-content div.banking-interactive-column{width:66%;margin-bottom:100px}div.citi-reports-container div.data-content div.banking-interactive-column .cdfi-list{margin-top:100px}div.citi-reports-container div.data-content div.banking-data-column{margin-top:5px;width:30%}div.citi-reports-container div.data-content div.banking-data-column div.value
+span.highlight{font-size:20px !important}div.citi-reports-container div.data-content div.banking-data-column
+div.divider{margin:5px
+0}div.citi-reports-container div.data-content div.housing-data-column div.value
+span.highlight{font-size:20px !important}div.citi-reports-container div.data-content div.housing-data-column
+div.divider{margin:5px
+0}div.citi-reports-container div.data-content div.housing-data-column
+.page2{margin-top:120px}div.citi-reports-container div.data-content div.small-ble-interactive-column{width:65%}div.citi-reports-container div.data-content div.small-ble-data-column{margin-top:5px;width:31%}div.citi-reports-container div.data-content div.small-ble-data-column
+div.divider{margin:12px
+0}div.citi-reports-container div.data-content div.small-bdr-interactive-column{width:65%}div.citi-reports-container div.data-content div.small-bdr-data-column{margin-top:15px;width:31%}div.citi-reports-container div.data-content div.small-bdr-data-column
+div.divider{margin:12px
+0}div.citi-reports-container div.data-content div.small-bdr-data-column div.value
+span.highlight{font-size:25px}div.citi-reports-container div.data-content div.small-bdr-interactive-column div.table-list{margin-top:75px}div.citi-reports-container div.data-content div.small-ble-data-column{margin-top:5px}div.citi-reports-container div.data-content div.small-business-and-jobs-interactive-column{width:64%}div.citi-reports-container div.data-content div.small-business-and-jobs-data-column{margin-top:10px;width:32%}div.citi-reports-container div.data-content div.small-business-and-jobs-data-column
+.page1{margin-bottom:80px}div.citi-reports-container .summary-page{height:1285px;margin:5px
+0}div.citi-reports-container .summary-page.page1{height:790px}div.citi-reports-container .summary-page.last-page{height:1200px}div.citi-reports-container div.summary-print{display:none}div.data-content #summary-map{display:block}div.data-content #summary-map-img{display:none}div.citi-reports-container div.summary-section{margin:12px
+auto}div.citi-reports-container div.summary-section
+table{border-spacing:0px !important}div.citi-reports-container div.summary-header{display:none}div.citi-reports-container div.summary-section .table-note{font-size:12px}.WidgetAndEmbedMaps
+#indicator_toggle{display:none}.WidgetAndEmbedMaps div.windowWidgetLegend
+h5{display:none}.WidgetAndEmbedMaps
+#widgetClearLocationButton{display:none}.WidgetAndEmbedMaps
+td.bc_td{display:none}.WidgetAndEmbedMaps
+div.footerbox{display:none}.WidgetAndEmbedMaps
+#morelink{display:none !important}#zoomControl{display:none !important}body.cb-clone
+noscript{display:none}body.cb-clone{min-width:auto !important}body.cb-clone .top-container{}body.cb-clone .top-container .search-form-container,
+body.cb-clone .top-container .header-opts{display:none}body.cb-clone .navigation,
+body.cb-clone .legend--data-points__category__container,
+body.cb-clone #getProfileButton,
+body.cb-clone .map-options__container{display:none !important}body.cb-clone #cb-content .map,
+body.cb-clone .nav-title-container{margin:0px;width:100%}body.cb-clone #cb-content
+.map{min-height:700px;height:100%}body.cb-clone .nav-title-container{height:auto;box-shadow:none;border:none}body.cb-clone .map-title-container{width:100%;height:auto}body.cb-clone .top-container{position:relative}body.cb-clone .content__header__additional-info__content{position:absolute;margin:0px;background:none;padding:0px
+0px 0px 10px;left:165px;top:50px}body.cb-clone #cb-content #map .popup-bg{display:none}body.cb-clone
+#sitesMenu{display:none}body.cb-clone
+#cbFooter{width:1050px;margin:5px
+0;padding:5px
+0}body.cb-clone.clone-print--MA
+.sideNavTD{display:table-cell}body.cb-clone #analytics-legend
+.remove_layer{display:none}body.cb-clone .analytics-legend__item .ui-slider-value{width:90px}#CBReport{width:1000px !important;margin:0px}#CBReport .print-logos{display:block}#CBReport
+.logo__left{float:left}#CBReport
+.logo__right{float:right}#CBReport #report-title{font-size:16px;margin-bottom:10px}#CBReport .right-column #report-map{width:500px !important}#CBReport
+.districttext{font-size:11px}#CBReport .left-column{margin:0px
+10px;width:470px;font-size:11px}#CBReport .cultural-assets-table{width:100%}#CBReport .cultural-assets-table
+td{padding:5px}#CBReport .demographic-section .data-list-column{float:none;width:650px}#CBReport .demographic-section .print-row{font-size:14px}#CBReport .demographic-section .print-row
+.value{font-weight:bold}#CBReport .demographic-section .print-row
+.row{float:left;margin:10px;width:180px}#CBReport .demographic-section .print-clear{clear:both}#CBReport .report-charts{width:1000px;margin:auto;clear:both;margin-top:30px}#CBReport
+#chart1{width:480px}#CBReport
+#chart2{width:480px}#CBReport
+#chart3{width:480px;margin:0px}#CBReport
+#chart4{width:480px;margin:0px}#CBReport .bar-chart-legend{left:43%}#CBReport
+.seelist{display:none}#CBReport #childcaresupplytable
+.seelist{display:block;border:none}#CBReport #childcaresupplytable
+a.seelist{text-decoration:none;border:none}#CBReport .agg-toggle{display:none}body.clone-report .endnote .agg-list{display:block !important}#CBReport
+div.source{font-size:12px}body.cb-clone .print-page1, body.cb-clone .print-page{height:900px}body.cb-clone-wp #CBReport .pie-chart{width:450px;height:330px;margin:0}body.cb-clone-wp .pie-chart .jqplot-data-label{font-size:11px}body.cb-clone-wp #CBReport .cultural-assets-table
+td{padding:3px}body.cb-clone-wp #CBReport.WP-Report .cultural-assets-table{margin:10px
+0}body.cb-clone-wp #CBReport.WP-Report .report-section{margin:15px
+0}body.cb-clone-wp #CBReport .right-column{width:520px}body.cb-clone-wp #CBReport .left-column{width:450px}body.cb-clone-wp #CBReport #wp-piecharts{width:100%}body.cb-clone-wp #CBReport #wp-piecharts #wp-childcare-pie1,#wp-childcare-pie2{width:50%}body.cb-clone-wp #CBReport .right-column #filters-container{margin:1px
+auto;padding:3px;font-size:10px}body.cb-clone-wp #CBReport .cultural-assets{margin:0}body.cb-clone-wp #CBReport .last-print-page{height:700px}.clone-report--footer
+#copyrights{display:block;text-align:right}#toolmap-copyrights{display:block;text-align:center;color:#C7C7C7;margin-top:30px}.content__header__additional-info{display:none}span.legend__close-icon{display:none}#zoomControl{display:none}span.legend__toggle-icon{display:none}body.cb-clone .map-legends{position:absolute;right:0px;top:0px;left:auto !important;max-width:470px}body.cb-clone .map-legends
+.legend{float:left}div.legend__indicators__item div.chosen-container a
+div{display:none}#notification{display:none}#titleprint{position:absolute;left:165px;top:20px;font-size:16px;padding:0px
+0px 0px 10px}body.cb-clone .top-container.no-logo #titleprint,
+body.cb-clone .top-container.no-logo .content__header__additional-info__content{left:0px}body.cb-clone .top-container
+div.logo{padding:0px
+10px 20px 0px;float:left;position:relative;margin:0
+0 0 0px;width:auto;line-height:88px}body.cb-clone .map-legends{left:0px}body.cb-clone #cb-content{height:700px}body.cb-clone .map-and-legends{height:700px}body.cb-clone
+#map{height:700px}body.cb-clone #toolmap-copyrights{margin-top:25px}body.cb-clone>div.top-container{min-height:100px}body.cb-clone.cb-clone-artswave.clone-tool.clone-print--EX
+#titleprint{position:absolute;font-size:16px;padding:0px
+0px 0px 10px;top:20px;left:165px}body.cb-clone.cb-clone-artswave.clone-tool.clone-print--EX .content__header__additional-info__content{position:absolute;margin:0px;padding:0px
+0px 0px 10px;top:50px;left:165px;min-height:75px}body.cb-clone.cb-clone-wp.clone-tool.clone-print--EX
+#titleprint{position:absolute;padding:0px
+0px 0px 10px;top:20px;left:195px}body.cb-clone.cb-clone-wp.clone-tool.clone-print--EX .content__header__additional-info__content{position:absolute;margin:0px;padding:0px
+0px 0px 10px;top:50px;left:195px}body.cb-clone.cb-clone-cultureblocks.clone-tool.clone-print--EX
+#titleprint{position:absolute;padding:0px
+0px 0px 10px;top:20px;left:135px}body.cb-clone.cb-clone-cultureblocks.clone-tool.clone-print--EX .content__header__additional-info__content{position:absolute;margin:0px;padding:0px
+0px 0px 10px;top:50px;left:135px}#legend
+button{display:none !important}#map>div.small-map-message.is-hidden.ui-draggable.ui-draggable-handle>div.small-map-message__header>span{display:none}#infoWindowClose{display:none !important}body.cb-clone.cb-clone-passaiccountychildcare
+#titleprint{position:absolute;left:180px;top:20px;font-size:16px;padding:0px
+0px 0px 10px}body.cb-clone.cb-clone-passaiccountychildcare .content__header__additional-info__content{position:absolute;margin:0px;background:none;padding:0px
+0px 0px 10px;left:180px;top:50px}body{margin:0;padding:0}#navbar,.header,.report_content,.report_header,.new_footer,.toolbar,.header__interface,.report_type_holder,.report_spacer,.report_location_holder,.report_location_selection_holder,.report_steps,.content__footer,.report_button,#wrapper-footer,noscript,iframe,#notification,#working_spinner,#googleMap{display:none !important}.hidden{display:none}br.clear{clear:both}body.pmap-body
+#container{width:auto;min-width:unset}.content__header__additional-info__content{display:block;background:none;top:auto;left:auto;position:relative;margin:0px;color:#515971;width:auto}.content__header__additional-info__close,.content__header__favorites-toggle,.content__header__close-icon,.content__header__additional-info__toggle{display:none}.taxonomy{display:none}#content{border-width:0px}.content__header{display:none !important}.taxonomy{display:none}#notification{display:none}#content{border-width:0px}.legend
+h2{background:#e6e6e6}#opportunity-report
+table.callout{border:none !important}#opportunity-report
+#cover_page_yellow_bar{height:50px !important}#opportunity-report
+#cover_page_text_container{min-height:750px !important;max-height:770px !important}#opportunity-report #cover_page_text_container #cptc_head
+h1{font-size:50px !important}#opportunity-report #cover_page_text_container
+#cptc_subtitle{font-size:26px !important}#opportunity-report #cover_page_text_container
+#cptc_text{font-size:26px !important}#opportunity-report #cover_page_text_container
+#cptc_logo{with:600px !important;height:146px !important;position:absolute !important;bottom:0px !important}#opportunity-report #cover_page_text_container
+div{margin-bottom:10px !important}#opportunity-report
+.only4print{display:block !important}#opportunity-report
+.not4print{display:none !important}#opportunity-report
+#wheel{width:340px;height:340px}.reportname{width:450px}.logoTD{background:url('/images/PolicyMap/policymap-logo.png') no-repeat 0 0;height:35px;width:188px;display:inline-block;margin:10px}.report_content,.report_generate{border-width:0px}.report_generate_holder{padding:0
+2px}td.reportsLogo{border-bottom:1px solid #D7EAB9;height:114px}div.pagelinks
+a{display:none}div.footerlinks{display:none}div.footerbox{min-width:450px;width:100%;max-width:700px;display:block}div.print-report-button,div.button_save{display:none}div.maintitles{color:#f3a12e;font-size:14pt;margin:10px}div.topbox{background:#f0f9e6;padding:5px;font-size:9pt;margin:0
+15px}div.reporttitles{background:#f0f9e6;padding:4px
+0 4px 10px;border-top:5px solid #d3e8b4;color:#f09220;font-size:13pt;margin:8px
+15px 0 15px}table.districtstable{padding-left:0px}table.districtstable
+td{border-bottom:1px solid #cfe6ad;padding:4px
+10px;font-size:10pt;color:#666}table.reporttable td.divider, table.reporttable
+th.divider{border-left:3px solid #cfe6ad}table.reporttableSmall
+th{font-size:9pt}table.reporttableSmall
+td{font-size:9pt}.districttext{color:#666;font-size:10pt;padding-left:2px;padding-bottom:5px;padding-top:5px}.districttext
+a{color:#5d83d0}.reporttext{color:#666;font-size:10pt;padding-left:10px;padding-bottom:5px;padding-top:5px}.reporttext
+a{color:#5d83d0}div.sectioncontent{padding:5px
+15px}div.aggOptions
+span.aggTypeLabel{display:inline}div.reporttitles span.toggle,
+div.agglist span.toggle,
+div.aggOptions select,
+div.agglist
+div.hide{display:none}div.centerAndCapitalizeTable
+table.reporttable{margin:auto;text-transform:capitalize;margin-top:8px;text-align:center}table.reporttable
+td.rightalign{text-align:right}table.reporttable
+td.centeralign{text-align:center}table.reporttable
+td.leftalign{text-align:left}table.reporttable
+td.smallfont{font-size:6pt}tr.bgshade
+td{background:#eee;font-weight:bold}b.lowercase{text-transform:lowercase}#reportHeaderTitle{padding:28px
+24px;font-size:14pt;font-weight:bold}#reportHeaderTitle
+div.reporttitle{color:#7C5A9B}body.pmap-body #reportHeaderTitle
+div.reporttitle{color:#7C5A9B}body.pmap-body .WellsFargoReport #reportHeaderTitle
+div.reporttitle{color:#FFF}#reportHeaderTitle
+div.reportname{color:#f09220}div.info{margin:10px
+15px 25px;color:#666;page-break-inside:avoid !important}div.reportsectiondivider{border:1px
+solid #D3E8B4;margin:0
+15px}table.fitpage{width:100%}td.ReportsNavAndCustomLogo{vertical-align:middle}td.ReportsNavAndCustomLogo
+img.customReportLogo{margin:0px
+70px 0px 0}div.MN-Report-Page table.mnwidget-areaofneed
+td{text-align:left !important;padding:5px
+110px 5px 0 !important}div.MN-Report-Page table.reporttable td.mn-ind-label{width:235px}div.MN-Report-Page
+div.topbox{background:#CCB}div.MN-Report-Page
+div.reporttitles{background:#CCB;color:#215352}div.MN-Report-Page div.topbox .topbox-header{color:#215352}div.MN-Report-Page div.topbox
+b{color:#EE3524}div.MN-Report-Page
+div.reporttitles{border-top:5px solid #215352}div.MN-Report-Page table.reporttable
+th{background:none;color:#215352}div.MN-Report-Page #reportHeaderTitle
+div.reporttitle{color:#215352}div.MN-Report-Page #reportHeaderTitle
+div.reportname{color:#EE3524}body.pmap-body #reportcontainer *,
+.pmap-widget-body
+.ReportGeneratePageContent{max-width:1100px}body.pmap-body #reportcontainer>table{width:100%;max-width:1100px}body.pmap-body
+div.topbox{width:auto}.ReportGeneratePageContent .page-break{page-break-before:always}table.page-break-avoid ,
+table.page-break-avoid tr,
+table.page-break-avoid td,
+table.page-break-avoid th,
+table.page-break-avoid tbody,
+table.page-break-avoid thead,
+table.page-break-avoid
+tfoot{page-break-inside:avoid !important}.ReportGeneratePageContent
+div.collapsed{display:none}.nopagebreakinside{page-break-inside:avoid !important}.logoTD{background:url('/images/PolicyMap/policymap-logo.png') no-repeat 0 0;height:35px;width:188px;display:inline-block;margin:10px}div.HudNICName{color:#7C5A9B;margin:0;font-size:15px;font-weight:bold;text-align:left}.hudareasummary{margin-left:30px}#reportHeaderTitle{padding:0
+24px 5px;font-size:16px}#reportHeaderTitle div.reportname, #reportHeaderTitle
+div.reportdate{color:#f09220}div.HudAddtributeTableContainer{width:auto}table.HudAttributeTable{width:585px;float:left;margin:0
+5px}table.HudGradeTable{width:300px}table.HudAttributeTable
+.hudattributename{font-size:11px}table.HudAttributeTable
+.hudattributevalue{font-size:11px}table.HudGradeTable
+.highlight{font-size:15px}table.HudAttributeTable
+.highlight{font-weight:bold}table.HudAttributeTable
+th{background:#eee;font-weight:bold;border:1px
+solid #ccc;padding:2px
+3px;font-size:12px}table.HudAttributeTable
+td{border:1px
+solid #ccc;padding:2px
+3px}div.hudContentDivider{height:2px}div.HudSectionHeader{background:#eee;color:#F09220;font-size:15px;padding:5px
+10px;margin:10px
+0 0;border-bottom:1px solid #D3E8B4;max-width:960px}.hudReportSection{margin:0;max-width:970px}#HudMapTable,.cloneDistanceTable{max-width:970px}.HudReportTable{margin:0;font-size:12px;width:100%}.HudReportTable
+td.header{background:#ccc;color:#F09220;font-size:18px;text-align:left}.HudReportTable
+td.empty{border:0px;background:none}.HudReportTable
+td.firstchild{border-left:0px}.HudReportTable
+td{width:190px;text-align:center;padding:2px}.HudReportTable
+td.mapcolumn{width:190px;height:200px;vertical-align:top;padding:6px}.HudReportTable td
+a.viewmap{display:none}.HudReportTable tr.placetitles
+td{background:#eee;font-weight:bold;font-size:14px;text-align:center;color:#000}.HudReportTable
+td.rowlabel{text-align:left}.HudReportTable
+td.valuesheader{background:#F0F9E6;text-align:left}.HudReportTable td.subheader
+span{margin-left:15px}.HudReportTable td.periodlabel, .HudReportTable td.subheader, .HudReportTable td.indlabel, .HudReportTable tr.indheader
+td{text-align:left}.HudReportTable tr.columnheader td, .HudReportTable tr.indheader
+td{background:#F0F9E6;font-weight:bold}.HudReportTable td.periodlabel span, .HudReportTable td.indlabel
+div{margin-left:20px}.HudReportTable td.indent
+div{margin-left:30px}.HudReportTable
+table.features{background:#ccc;height:auto;width:auto}#hudmapcontainer{//display:none}#hudmap{width:744px;height:475px;position:relative;float:left}#overallMapHeader{padding:10px;color:#7C5A9B;font-size:15px;font-weight:bold}div.hudmap{position:relative;width:190px;height:190px;float:left}div.hudmap_features_container{height:30px}div.hudmap_features_container
+table.hudmap_features{float:right;margin:5px
+0}div.hudmap_features_container table.hudmap_features
+td{border-right:1px solid #fff;padding:0
+15px}div.hudmap_features_container table.hudmap_features td
+a{color:#fff !important;font-weight:normal}div.hudmap_optsbox{right:12px;bottom:24px;z-index:6000}.hudReportSection
+div.source{font-size:12px;margin:10px
+0px 15px;max-width:970px}img.hudlogo{width:135px;margin:0
+60px}div.hud-buttons-container{display:none}.pageBreak{page-break-after:always;display:block}.pageHeader{color:#ccc !important;font-size:14px !important;font-weight:bold !important;height:65px}.headerPlace{color:#aaa}.leftHeader{float:left}.rightHeader{float:right;text-align:right}table.cloneDistanceTable{display:table}div.topbox{margin:0;width:100%}#endnotes
+p{margin:0
+0 8px}.HudReportTable
+td.greyout{background:#ccc}.WellsFargoReport .HudReportTable td:first-child{width:144px}.WellsFargoReport .HudReportTable
+td.split{width:96px;text-align:center !important}.WellsFargoReport .HudReportTable
+td.divider{border-right:3px solid #000}.WellsFargoReport .ReportTableNoPrintWidthAdj tr td:first-child{width:190px !important}.WellsFargoReport
+span.toggle{display:none}.WellsFargoReport
+.SectionContainer{display:block}div.sectionBoundaryTitles{position:relative;right:0px;float:right;top:0px}div.sectionBoundaryTitles
+table.cloneDistanceTable{display:block !important;width:auto !important;position:relative;right:0px;float:right}div.sectionBoundaryTitles table.cloneDistanceTable
+td.empty{display:none}table.cloneDistanceTable{display:none}div.withMapTitles{padding:6px
+0 6px 10px;position:relative;display:table}div.withMapTitles
+table.sectionHeaderTable{position:relative;top:0px;right:0px;float:right}div.withMapTitles table.cloneDistanceTable
+td{border:none;padding:0
+7px;width:188px}div.withMapTitles
+span.textToggle{float:left;font-size:14px}div.withMapTitles
+span.toggle{float:left}.pagebreakafter{page-break-after:always}.pagebreakbefore{page-break-before:always}div.printspacer100px{margin:100px}div.printspacer200px{margin:200px}.WidgetPageContent
+#widgetcolumn{display:none}.WidgetPageContent
+#zoomControl{display:none}.WidgetPageContent
+div.maptitlebox_widget{padding-left:195px !important}.WidgetPageContent
+#widgetClearLocationButton{display:none}.WidgetPageContent
+img.widgetPrintLogo{display:block;float:right}.WidgetPageContent
+a.textOnly{display:none}.WidgetPageContent
+div.windowWidgetLegend{float:left;padding:0
+10px 0 0;left:0;position:relative !important}.WidgetPageContent
+div.widgetSearchboxContainer{display:none !important}.WidgetPageContent #chartContainer
+.popup{background:#fff;color:#000}.WidgetPageContent
+div.breadcrumbs{display:none}.WidgetPageContent
+div.mapButton{display:none !important}.WidgetPageContent #popup,
+.WidgetPageContent #popup_content,
+.WidgetPageContent #reportRanks,
+.WidgetPageContent #reportRanks div.body,
+.WidgetPageContent #reportRanks
+table.bodyTable{height:auto;overflow:visible}.WidgetPageContent
+#popup_content{position:relative}.WidgetPageContent div.legend,#onmaplegend{margin:0}.WidgetPageContent
+td.rankingsTD{padding-top:0px}.WidgetPageContent
+#widgetPrintButton{display:none !important}
